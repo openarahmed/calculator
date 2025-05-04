@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculator with History</title>
+    <title>Responsive Calculator with History</title>
     <style>
       * {
         box-sizing: border-box;
@@ -17,19 +17,24 @@
         align-items: center;
         height: 100vh;
         margin: 0;
+        padding: 10px;
       }
 
       .container {
         display: flex;
+        flex-direction: row;
         gap: 20px;
         background: #222;
         padding: 20px;
         border-radius: 12px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        max-width: 600px;
+        width: 100%;
+        flex-wrap: wrap;
       }
 
       .calculator {
-        width: 260px;
+        flex: 1 1 250px;
       }
 
       .calculator input {
@@ -46,7 +51,7 @@
 
       .buttons {
         display: grid;
-        grid-template-columns: repeat(4, 60px);
+        grid-template-columns: repeat(4, 1fr);
         gap: 10px;
       }
 
@@ -83,8 +88,9 @@
       }
 
       .history {
-        width: 200px;
+        flex: 1 1 100%;
         color: white;
+        margin-top: 20px;
       }
 
       .history h3 {
@@ -96,7 +102,7 @@
       .history ul {
         list-style: none;
         padding: 0;
-        max-height: 350px;
+        max-height: 250px;
         overflow-y: auto;
       }
 
@@ -106,7 +112,20 @@
         padding: 8px;
         border-radius: 5px;
         font-size: 14px;
-        word-break: break-all;
+        word-break: break-word;
+      }
+
+      @media (min-width: 600px) {
+        .container {
+          flex-direction: row;
+          flex-wrap: nowrap;
+        }
+
+        .history {
+          flex: 0 0 200px;
+          margin-top: 0;
+          margin-left: 20px;
+        }
       }
     </style>
   </head>
